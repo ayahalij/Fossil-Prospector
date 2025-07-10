@@ -1,6 +1,6 @@
-# 🦴Fossil prospector🦖
+# 🦴Fossil Prospector🦖
 
-![alt text](image.png)
+![game framework design](images/framework.png)
 
 ##  Description 🔍
 **Fossil Prospector** is a grid-based excavation game inspired by *Battleship*. In a 10x10 grid, you take on the role of an adventurous paleontologist who must find fossil parts buried across various regions in a race against time and a rival prospector. Your goal is to locate every fossil fragment needed to finish the dinosaur skeleton before the clock runs out or your rival does!
@@ -30,6 +30,19 @@
 - Show hit/miss result visually  
 - Track fossil parts found and score  
 - Win = all parts uncovered before time or rival
+```
+* plaintext:
+```
+1. Initialize empty 10x10 grids for player and computer
+2. Place ships of different sizes on each grid
+   - Ensure no overlaps or out-of-bounds placements
+3. Player clicks on computers grid to attack
+   - If hit: mark hit, show feedback
+   - If miss: mark miss, change turn
+4. Computer randomly attacks player’s grid
+5. After each turn, check if all ships of a player are sunk
+   - If yes: show win/lose message
+6. Game ends when one side loses all ships
 ```
 
 ## Game Logic 🧠
