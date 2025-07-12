@@ -1,0 +1,27 @@
+body {
+  font-family:'Freckle Face' ;
+  text-align: center;
+  background-color: #ecfbfece;
+}
+
+h1{
+  font-size: 40px;
+  color: #4C6658;
+}
+
+#restart-btn {
+  margin-top: 15px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #678E79;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;  
+  font-family:'Freckle Face' ;
+}
+
+#restart-btn:hover {
+  background-color: #79a68e;
+
+}
