@@ -9,6 +9,35 @@ h1{
   color: #4C6658;
 }
 
+#game-board {
+  display: grid;
+  grid-template-columns: repeat(10, 40px);
+  grid-template-rows: repeat(10, 40px);
+  gap: 2px;
+  justify-content: center;
+  margin: 20px auto;
+}
+
+.sqr {
+  width: 40px;
+  height: 40px;
+  background-color: #BF9765;
+  border: 1px solid #85673F;
+  cursor: pointer;
+}
+
+.sqr.hit {
+  background-color: #B4E5A2;
+}
+
+.sqr.miss {
+  background-color: #f4f3f3;
+}
+
+.sqr.sunk {
+  background-color: #ebddab;
+}
+
 #restart-btn {
   margin-top: 15px;
   padding: 10px 20px;

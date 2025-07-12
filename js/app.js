@@ -26,6 +26,117 @@ const RestartBtn = document.getElementById("restart-btn")
 
 /*-------------------------------- Functions --------------------------------*/
 
+function SetupGame() {
+  board.innerHTML = ""
+  tries = 0
+  hitCount = 0
+  FossilsSunk = 0
+  Fossils = []
+
+  for (let i = 0; i < 100; i++) {
+    const square = document.createElement("div")
+    square.classList.add("sqr")
+    square.id = i
+    square.addEventListener("click", HandleClicK)
+    board.appendChild(square)
+  }
+
+  FossilShapes.forEach((Fossil, index) => {
+    let placed = false
+    while (!placed) {
+      let start = Math.floor(Math.random() * 100)
+      let row = Math.floor(start / 10)
+      let col = start % 10
+      let positions = []
+
+      if (Fossil.shape === "line") {
+        if (col + Fossil.size > 10) continue;
+        for (let i = 0; i < Fossil.size; i++) {
+          let pos = start + i
+          if (Fossils.some(s => s.positions.includes(pos))) {
+            positions = []
+            break
+          }
+          positions.push(pos)
+        }
+      } else if (Fossil.shape === "rectangle") {
+        if (row + Fossil.rows > 10 || col + Fossil.cols > 10) continue;
+        for (let r = 0; r < Fossil.rows; r++) {
+          for (let c = 0; c < Fossil.cols; c++) {
+            let pos = (row + r) * 10 + (col + c)
+            if (Fossils.some(s => s.positions.includes(pos))) {
+              positions = []
+              break
+            }
+            positions.push(pos)
+          }
+        }
+      }
+
+      if (positions.length === Fossil.size) {
+        Fossils.push({ name: `Fossil-${index + 1}`, positions, hits: [] })
+        placed = true
+      }
+    }
+  })
+
+  StatusText.textContent = "Click to fire! You have 80 tries."
+  ScoreText.textContent = `Hits: 0 / ${HitsRequired} | Tries Left: ${TriesNum} | Fossils Remaining: ${FossilShapes.length}`
+}
+
+function HandleClicK(event) {
+  const id = parseInt(event.target.id)
+  const square = event.target
+
+  if (square.classList.contains("hit") || square.classList.contains("miss") || tries >= TriesNum) return
+
+  tries++
+  for (let Fossil of Fossils) {
+    if (Fossil.positions.includes(id)) {
+      if (!Fossil.hits.includes(id)) {
+        Fossil.hits.push(id);
+        square.classList.add("hit")
+        hitCount++
+        StatusText.textContent = `HIT on ${Fossil.name}✅`
+
+        if (Fossil.hits.length === Fossil.positions.length) {
+          Fossil.positions.forEach(pos => {
+            document.getElementById(pos).classList.add("sunk")
+          })
+          FossilsSunk++
+          StatusText.textContent = `You sunk ${Fossil.name}🔍👏🏻`
+        }
+
+        updateScore()
+        return
+      }
+    }
+  }
+
+  square.classList.add("miss")
+  StatusText.textContent = "Miss❌"
+  updateScore();
+}
+
+function updateScore() {
+  ScoreText.textContent = `Hits: ${hitCount} / ${HitsRequired} || Tries Left: ${TriesNum - tries} || Fossils Remaining: ${FossilShapes.length - FossilsSunk}`
+
+  if (hitCount === HitsRequired) {
+    StatusText.textContent = "You sunk all the Fossils! YOU WIN! 😍"
+    disableBoard()
+  } else if (tries >= TriesNum) {
+    StatusText.textContent = "You've used all your tries. Game Over 😣"
+    disableBoard()
+  }
+}
+
+function disableBoard() {
+  for (let i = 0; i < 100; i++) {
+    const square = document.getElementById(i)
+    square.removeEventListener("click", HandleClicK)
+  }
+}
+
 
 /*----------------------------- Event Listeners -----------------------------*/
 
