@@ -4,9 +4,9 @@ const TriesNum = 80
 
 //fossiles shape
 const FossilShapes = [
-{size:1, shape:'line', part:'Plate'},
-{size:1, shape:'line', part:'Plate'},
-{size:1, shape:'line', part:'Plate'},
+{size:1, shape:'line', part:'Plate1'},
+{size:1, shape:'line', part:'Plate2'},
+{size:1, shape:'line', part:'Plate3'},
 {size:2, shape:'line', part:'Leg1'},
 {size:3, shape:'line', part:'Leg2'},
 {size:4, shape:'line', part:'Tail'},
@@ -32,6 +32,13 @@ const RestartBtn = document.getElementById("restart-btn")
 /*-------------------------------- Functions --------------------------------*/
 //setup the game
 function SetupGame() {
+
+const overlays = document.querySelectorAll('.check-overlay')
+overlays.forEach(overlay => {
+overlay.style.display = 'none'
+})
+
+
 board.innerHTML = ""
 tries = 0
 hitCount = 0
@@ -124,6 +131,11 @@ for (let Fossil of Fossils) {
 
         FossilsSunk++
         StatusText.textContent = `You sunk the ${Fossil.part}🔍👏🏻`
+        const partClass = `.check-${Fossil.part.toLowerCase()}`;
+        const overlay = document.querySelector(partClass);
+        if (overlay) {
+        overlay.style.display = "block";
+        }
       }
 
       updateScore()
@@ -144,10 +156,10 @@ ScoreText.textContent = `Hits: ${hitCount} / ${HitsRequired} ~ Tries Left: ${Tri
 
 //end of the game
 if (hitCount === HitsRequired) {
-  StatusText.textContent = "You sunk all the Fossils! YOU WIN! 😍"
+  StatusText.textContent = "All the Fossils sunk! YOU WIN! 😍"
   disableBoard()
 } else if (tries >= TriesNum) {
-  StatusText.textContent = "You've used all your tries. Game Over 😣"
+  StatusText.textContent = "All tries used. Game Over 😣"
   disableBoard()
 }
 }
