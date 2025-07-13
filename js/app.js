@@ -86,7 +86,7 @@ FossilShapes.forEach((Fossil, index) => {
 
 //hiting the fossil
     if (positions.length === Fossil.size) {
-      Fossils.push({ name: `Fossil-${index + 1}`, positions, hits: [] })
+      Fossils.push({ part: Fossil.part, positions, hits: [] })
       placed = true
     }
   }
@@ -112,14 +112,14 @@ for (let Fossil of Fossils) {
       Fossil.hits.push(id);
       square.classList.add("hit")
       hitCount++
-      StatusText.textContent = `Hit on ${Fossil.name}✅`
+      StatusText.textContent = `Hit on ${Fossil.part}✅`
 
       if (Fossil.hits.length === Fossil.positions.length) {
         Fossil.positions.forEach(pos => {
           document.getElementById(pos).classList.add("sunk")
         })
         FossilsSunk++
-        StatusText.textContent = `You sunk ${Fossil.name}🔍👏🏻`
+        StatusText.textContent = `You sunk the ${Fossil.part}🔍👏🏻`
       }
 
       updateScore()

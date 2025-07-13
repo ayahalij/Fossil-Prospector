@@ -31,10 +31,11 @@ p{
 
 }
 .checkboard img{
-  height: 250px;
-  margin-top: 85px;
+  height: 220px;
+  margin-top: 100px;
   margin-left: 10px;
-  background-color: #678E79;
+  background-color: #678e79ab;
+  border-radius: 10px;
 }
 
 .game{
@@ -49,7 +50,7 @@ p{
   float: right;
   margin-right: 6px;
   width: 28%;
-  margin-top: 160px;
+  margin-top: 150px;
 }
 
 #status{
