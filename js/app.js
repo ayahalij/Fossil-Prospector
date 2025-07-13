@@ -94,7 +94,7 @@ FossilShapes.forEach((Fossil, index) => {
 
 //update
 StatusText.textContent = "Click to fire! You have 80 tries."
-ScoreText.textContent = `Hits: 0 / ${HitsRequired} ~ Tries Left: ${TriesNum} ~ Fossils Remaining: ${FossilShapes.length}`
+ScoreText.textContent = `Hits: 0 / ${HitsRequired}  ~  Tries Left: ${TriesNum}  ~  Fossils Remaining: ${FossilShapes.length}`
 }
 
 //handle click on the board
