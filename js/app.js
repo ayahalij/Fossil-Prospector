@@ -10,7 +10,7 @@ const FossilShapes = [
   {size:6, shape:'rectangle', part:'Head', rows: 2, cols: 3 },
   {size:8, shape:'rectangle', part:'Body', rows: 2, cols: 4 }
 ]
-const HitsRequired = FossilShapes.reduce((sum, s) => sum + s.size, 0)
+const HitsRequired = FossilShapes.reduce((sum, s)=> sum + s.size, 0)
 
 
 /*---------------------------- Variables (state) ----------------------------*/
@@ -26,6 +26,7 @@ const RestartBtn = document.getElementById("restart-btn")
 
 /*-------------------------------- Functions --------------------------------*/
 
+// Initialize and set up the game
 function SetupGame() {
   board.innerHTML = ""
   tries = 0
@@ -33,6 +34,7 @@ function SetupGame() {
   FossilsSunk = 0
   Fossils = []
 
+  // Create the 10x10 game board
   for (let i = 0; i < 100; i++) {
     const square = document.createElement("div")
     square.classList.add("sqr")
@@ -41,6 +43,7 @@ function SetupGame() {
     board.appendChild(square)
   }
 
+  // Place Fossils on the board
   FossilShapes.forEach((Fossil, index) => {
     let placed = false
     while (!placed) {
@@ -81,9 +84,10 @@ function SetupGame() {
   })
 
   StatusText.textContent = "Click to fire! You have 80 tries."
-  ScoreText.textContent = `Hits: 0 / ${HitsRequired} | Tries Left: ${TriesNum} | Fossils Remaining: ${FossilShapes.length}`
+  ScoreText.textContent = `Hits: 0 / ${HitsRequired} || Tries Left: ${TriesNum} || Fossils Remaining: ${FossilShapes.length}`
 }
 
+// Handle user clicks on the board
 function HandleClicK(event) {
   const id = parseInt(event.target.id)
   const square = event.target
@@ -118,6 +122,7 @@ function HandleClicK(event) {
   updateScore();
 }
 
+// Update game status and score display
 function updateScore() {
   ScoreText.textContent = `Hits: ${hitCount} / ${HitsRequired} || Tries Left: ${TriesNum - tries} || Fossils Remaining: ${FossilShapes.length - FossilsSunk}`
 
@@ -130,6 +135,7 @@ function updateScore() {
   }
 }
 
+// Prevent further clicks after game ends
 function disableBoard() {
   for (let i = 0; i < 100; i++) {
     const square = document.getElementById(i)
@@ -140,7 +146,8 @@ function disableBoard() {
 
 /*----------------------------- Event Listeners -----------------------------*/
 
+// When DOM is ready, initialize everything
 window.addEventListener("DOMContentLoaded", () => {
   RestartBtn.addEventListener("click", SetupGame)
-  SetupGame()
+  SetupGame()// Start game on page load
 })
