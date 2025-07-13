@@ -91,17 +91,51 @@ p{
   cursor: pointer;
 }
 
-.sqr.hit {
-  background-color: #B4E5A2;
-}
 
 .sqr.miss {
   background-color: #f4f3f3;
 }
 
+
+/* Remove color backgrounds */
+.sqr.hit,
 .sqr.sunk {
-  background-color: #ebddab;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
+
+/* Optional: dim for sunk */
+.sqr.sunk {
+  filter: brightness(0.7);
+}
+
+/* Images per fossil part (dynamically used via data-part) */
+.sqr[data-part="Plate"] {
+  background-image: url("../images/plate.png");
+}
+
+.sqr[data-part="Leg1"] {
+  background-image: url("../images/leg1.png");
+}
+
+.sqr[data-part="Leg2"] {
+  background-image: url("../images/leg2.png");
+}
+
+.sqr[data-part="Tail"] {
+  background-image: url("../images/tail.png");
+}
+
+.sqr[data-part="Head"] {
+  background-image: url("../images/head.png");
+}
+
+.sqr[data-part="Body"] {
+  background-image: url("../images/body.png");
+}
+
 
 #restart-btn {
   margin-bottom: 10px;

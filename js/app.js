@@ -7,8 +7,8 @@ const FossilShapes = [
 {size:1, shape:'line', part:'Plate'},
 {size:1, shape:'line', part:'Plate'},
 {size:1, shape:'line', part:'Plate'},
-{size:2, shape:'line', part:'Leg'},
-{size:3, shape:'line', part:'Leg'},
+{size:2, shape:'line', part:'Leg1'},
+{size:3, shape:'line', part:'Leg2'},
 {size:4, shape:'line', part:'Tail'},
 {size:6, shape:'rectangle', part:'Head', rows: 2, cols: 3 },
 {size:8, shape:'rectangle', part:'Body', rows: 2, cols: 4 }
@@ -111,13 +111,17 @@ for (let Fossil of Fossils) {
     if (!Fossil.hits.includes(id)) {
       Fossil.hits.push(id);
       square.classList.add("hit")
+      square.setAttribute("data-part", Fossil.part)
       hitCount++
       StatusText.textContent = `Hit on ${Fossil.part}✅`
 
       if (Fossil.hits.length === Fossil.positions.length) {
         Fossil.positions.forEach(pos => {
-          document.getElementById(pos).classList.add("sunk")
+          const el = document.getElementById(pos)
+          el.classList.add("sunk")
+          el.setAttribute("data-part", Fossil.part)
         })
+
         FossilsSunk++
         StatusText.textContent = `You sunk the ${Fossil.part}🔍👏🏻`
       }
@@ -136,7 +140,7 @@ updateScore();
 
 //score update
 function updateScore() {
-ScoreText.textContent = `Hits: ${hitCount} / ${HitsRequired} || Tries Left: ${TriesNum - tries} || Fossils Remaining: ${FossilShapes.length - FossilsSunk}`
+ScoreText.textContent = `Hits: ${hitCount} / ${HitsRequired} ~ Tries Left: ${TriesNum - tries} ~ Fossils Remaining: ${FossilShapes.length - FossilsSunk}`
 
 //end of the game
 if (hitCount === HitsRequired) {
