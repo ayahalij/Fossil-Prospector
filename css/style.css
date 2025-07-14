@@ -74,12 +74,23 @@ p{
   margin-top: 150px;
 }
 
+#timer{
+  border: 1px solid sienna;
+  font-size: 21px;
+  width: 210px;
+  background-color: #678e7984;
+  border-radius: 5px;
+  margin-left: 73px;
+  letter-spacing: 1px;
+  color: rgb(164, 17, 17);
+}
+
 #status{
   border: 1px solid sienna;
   width: 310px;
   height: 25px;
   font-size: 19px;
-  margin-left: 20px;
+  margin-left: 19px;
   border-radius: 5px;
   background-color: #678e7984;
   letter-spacing: 1px;
@@ -91,7 +102,6 @@ p{
   background-color: #678e7984;
   border-radius: 5px;
   font-size: 19px;
-  margin-top: 35px;
   letter-spacing: 1.4px;
 }
 
