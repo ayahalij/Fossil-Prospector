@@ -29,6 +29,7 @@ const StatusText = document.getElementById("status")
 const ScoreText = document.getElementById("score")
 const RestartBtn = document.getElementById("restart-btn")
 const TimerText = document.getElementById("timer")
+const hitSound = new Audio("./audio/prospecting.mp3");
 
 
 /*-------------------------------- Functions --------------------------------*/
@@ -131,7 +132,7 @@ tries++
 for (let Fossil of Fossils) {
   if (Fossil.positions.includes(id)) {
     if (!Fossil.hits.includes(id)) {
-      Fossil.hits.push(id);
+      Fossil.hits.push(id)
       square.classList.add("hit")
       square.setAttribute("data-part", Fossil.part)
       hitCount++
@@ -153,6 +154,9 @@ for (let Fossil of Fossils) {
         }
       }
 
+      hitSound.currentTime = 0;
+      hitSound.play();
+
       updateScore()
       return
     }
@@ -162,6 +166,8 @@ for (let Fossil of Fossils) {
 //missing
 square.classList.add("miss")
 StatusText.textContent = "Miss❌"
+      hitSound.currentTime = 0;
+      hitSound.play();
 updateScore();
 }
 
