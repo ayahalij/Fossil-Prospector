@@ -23,13 +23,17 @@ let tries, hitCount,FossilsSunk, Fossils,timeInt
 let timerStarted = false;
 let min=2, sec=0;
 
+
 /*------------------------ Cached Element References ------------------------*/
 const board = document.getElementById("game-board")
 const StatusText = document.getElementById("status")
 const ScoreText = document.getElementById("score")
 const RestartBtn = document.getElementById("restart-btn")
 const TimerText = document.getElementById("timer")
-const hitSound = new Audio("./audio/prospecting.mp3");
+const hitSound = new Audio("./audio/click.wav")
+const sunkSound = new Audio("./audio/sunk.mp3")
+const winSound = new Audio("./audio/win.mp3")
+const loseSound = new Audio("./audio/lose.mp3")
 
 
 /*-------------------------------- Functions --------------------------------*/
@@ -149,6 +153,8 @@ for (let Fossil of Fossils) {
         StatusText.textContent = `You sunk the ${Fossil.part}🔍👏🏻`
         const partClass = `.check-${Fossil.part.toLowerCase()}`
         const overlay = document.querySelector(partClass);
+        sunkSound.currentTime = 0;
+        sunkSound.play();
         if (overlay) {
         overlay.style.display = "block";
         }
@@ -166,8 +172,8 @@ for (let Fossil of Fossils) {
 //missing
 square.classList.add("miss")
 StatusText.textContent = "Miss❌"
-      hitSound.currentTime = 0;
-      hitSound.play();
+hitSound.currentTime = 0;
+hitSound.play();
 updateScore();
 }
 
@@ -180,11 +186,15 @@ function updateScore() {
     StatusText.textContent = "All the Fossils sunk! YOU WIN! 😍"
     clearInterval(timeInt)
     disableBoard()
+    winSound.currentTime = 0;
+    winSound.play();
   } 
   else if (tries >= TriesNum){
     StatusText.textContent = "All tries used. Game Over 😣"
     clearInterval(timeInt)
     disableBoard()
+    loseSound.currentTime = 0;
+    loseSound.play();
   }
 }
 
@@ -207,6 +217,8 @@ function startTimer() {
         clearInterval(timeInt)
         StatusText.textContent = "Time`s up! Game Over 😣"
         disableBoard()
+        loseSound.currentTime = 0;
+        loseSound.play();
         return
       } 
       else {
