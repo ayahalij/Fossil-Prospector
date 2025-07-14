@@ -1,21 +1,23 @@
 # 🦴Fossil Prospector🦖
 
-![game framework design](images/framework.png)
+![game framework design](images/framework1.png)
+
 
 ##  Description 🔍
-**Fossil Prospector** is a grid-based excavation game inspired by *Battleship*. In a 10x10 grid, you take on the role of an adventurous paleontologist who must find fossil parts buried across various regions in a race against time and a rival prospector. Your goal is to locate every fossil fragment needed to finish the dinosaur skeleton before the clock runs out or your rival does!
+**Fossil Prospector** is a grid-based excavation game inspired by *Battleship*. In a 10x10 grid, you take on the role of an adventurous paleontologist who must find fossil parts buried across various regions in a race against time and before the available tries finish. Your goal is to locate every fossil fragment needed to finish the dinosaur skeleton before the clock runs out or the tries finish!
 
 ## How to Get Started and Play 🎮
 * The moment the page loads, the game launches automatically.
 * Click on any tile in the 10x10 excavation grid to dig.
+* The countdown time will start
     * If a fossil portion is found, it will be visually identified.
     * It will display as a miss if you hit plain dirt.
 * Your current score and fossil discoveries are displayed in the side panel
 * Finding every fossil component before:
     * Time runs out  
     *or*
-    * Your competitor discovers first!
-* A win message will appear *only if you locate all fossil parts before time ends and before your rival finishes*
+    * The available tries finish
+* A win message will appear *only if you locate all fossil parts before time ends or before the available tries finish*
 * The **Restart** button will allow you to restart the game.
 
 ##  Planning Materials 📁
@@ -34,15 +36,12 @@
 * plaintext:
 ```
 1. Initialize empty 10x10 grids for player and computer
-2. Place ships of different sizes on each grid
+2. Place fossil of different sizes on each grid
    - Ensure no overlaps or out-of-bounds placements
 3. Player clicks on computers grid to attack
    - If hit: mark hit, show feedback
    - If miss: mark miss, change turn
-4. Computer randomly attacks player’s grid
-5. After each turn, check if all ships of a player are sunk
-   - If yes: show win/lose message
-6. Game ends when one side loses all ships
+4. Game ends when one all fossil found = win, or tries finsh || time out = loss
 ```
 
 ## Game Logic 🧠
@@ -65,15 +64,43 @@
    - Prevent digging the same cell twice
 
 4. Win condition:
-   - If all fossil parts are found before time runs out and before the competitor finishes:
+   - If all fossil parts are found before time runs out and before the  available tries finish:
      - Display win message and stop the game
 
 5. Lose condition:
-   - If time runs out or the competitor completes their excavation first:
+   - If time runs out or the available tries finish:
      - Display lose message and stop the game
 
 6. Restart:
    - Clear board, reset score, fossils, and timer
    - Start a new game
+
+
+## Future Features 🚀
+* Add a two-player mode (user vs. computer)
+* Both take turns digging on their own grid
+* First to find all fossil parts wins
+* Display turn-based status and animations
+* Add sound effects for hits, misses, win/lose, and countdown
+
+
+![Future plan game framework design](images/futureframework.png)
+
+##  Credits 🙏🏻
+
+
+* 📝✍🏻 **Planning & Task Management**: [Trello](https://trello.com) used for organizing phases, tasks, and progress.
+* 🎨🧱 **Wireframe & Layout Design**: Created using [Figma](https://www.figma.com/) for visual planning and layout structure.
+* 👁‍🗨🔧 **Graphics Editing**: [Pixlr](https://pixlr.com/) used for customizing images and visual assets.
+* 🔤📎 **Typography**: [Freckle Face](https://fonts.google.com/specimen/Freckle+Face) from Google Fonts — playful, prehistoric style.
+* 💻🌐 **Code References & Learning Support**:
+  - [W3Schools](https://www.w3schools.com/)
+  - [MDN Web Docs (Mozilla)](https://developer.mozilla.org/)
+  - [Stack Overflow](https://stackoverflow.com/)
+
+* 🤍👥 **Instructional Support**: Thanks to General Assembly instructors for feedback, guidance, and support throughout the development process.
+
+
+
 
 

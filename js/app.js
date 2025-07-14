@@ -1,6 +1,6 @@
 /*-------------------------------- Constants --------------------------------*/
 //number of available tries
-const TriesNum = 100
+const TriesNum = 80
 
 //fossiles shape
 const FossilShapes = [
@@ -120,7 +120,7 @@ function HandleClicK(event) {
     startTimer()
     timerStarted = true
   }
-
+  
 const id = parseInt(event.target.id)
 const square = event.target
 
@@ -167,50 +167,53 @@ updateScore();
 
 //score update
 function updateScore() {
-ScoreText.textContent = `Hits: ${hitCount} / ${HitsRequired} ~ Tries Left: ${TriesNum - tries} ~ Fossils Remaining: ${FossilShapes.length - FossilsSunk}`
+  ScoreText.textContent = `Hits: ${hitCount} / ${HitsRequired} ~ Tries Left: ${TriesNum - tries} ~ Fossils Remaining: ${FossilShapes.length - FossilsSunk}`
 
-//end of the game
-if (hitCount === HitsRequired) {
-  StatusText.textContent = "All the Fossils sunk! YOU WIN! 😍"
-  clearInterval(timeInt)
-  disableBoard()
-} else if (tries >= TriesNum) {
-  StatusText.textContent = "All tries used. Game Over 😣"
-  clearInterval(timeInt)
-  disableBoard()
-}
+  //end of the game
+  if (hitCount === HitsRequired){
+    StatusText.textContent = "All the Fossils sunk! YOU WIN! 😍"
+    clearInterval(timeInt)
+    disableBoard()
+  } 
+  else if (tries >= TriesNum){
+    StatusText.textContent = "All tries used. Game Over 😣"
+    clearInterval(timeInt)
+    disableBoard()
+  }
 }
 
 //prevent further clicks after game ends
-function disableBoard() {
-for (let i = 0; i < 100; i++) {
-  const square = document.getElementById(i)
-  square.removeEventListener("click", HandleClicK)
-}
+function disableBoard(){
+  for (let i=0; i < 100; i++) {
+    const square = document.getElementById(i)
+    square.removeEventListener("click", HandleClicK)
+  }
 }
 
 
 //timer
 function startTimer() {
-  updateTimerDisplay(); // show initial time
+  updateTimerDisplay() // show initial time
 
   timeInt = setInterval(() => {
     if (sec === 0) {
       if (min === 0) {
-        clearInterval(timeInt);
+        clearInterval(timeInt)
         StatusText.textContent = "Time`s up! Game Over 😣"
-        disableBoard();
-        return;
-      } else {
-        min--;
-        sec = 59;
+        disableBoard()
+        return
+      } 
+      else {
+        min--
+        sec= 59
       }
-    } else {
-      sec--;
+    } 
+    else {
+      sec--
     }
 
-    updateTimerDisplay();
-  }, 1000);
+    updateTimerDisplay()
+  },1000)
 }
 
 //update timer
