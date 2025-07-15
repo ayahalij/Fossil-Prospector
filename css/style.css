@@ -30,7 +30,7 @@ p{
   justify-items: center;
 }
 
-.dino-wrapper {
+.dino-wrapper{
   position: relative;
   height: 220px;
   margin-top: 100px;
@@ -114,6 +114,13 @@ p{
   margin: 20px auto;
 }
 
+#hit-effect{
+  display:none;
+  position:absolute;
+  width:40px;
+   height:40px;
+}
+
 .sqr {
   width: 38px;
   height: 38px;
@@ -128,7 +135,6 @@ p{
 }
 
 
-/* Remove color backgrounds */
 .sqr.hit,
 .sqr.sunk {
   background-color: transparent;
@@ -137,12 +143,10 @@ p{
   background-position: center;
 }
 
-/* Optional: dim for sunk */
 .sqr.sunk {
   filter: brightness(0.85);
 }
 
-/* Images per fossil part (dynamically used via data-part) */
 .sqr[data-part="Plate1"] {
   background-image: url("../images/plate1.png");
 }
@@ -176,7 +180,7 @@ p{
 }
 
 
-#restart-btn {
+#restart-btn{
   margin-bottom: 10px;
   padding: 10px 20px;
   font-size: 18px;

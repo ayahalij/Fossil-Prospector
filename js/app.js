@@ -30,6 +30,7 @@ const StatusText = document.getElementById("status")
 const ScoreText = document.getElementById("score")
 const RestartBtn = document.getElementById("restart-btn")
 const TimerText = document.getElementById("timer")
+const hitImg = document.getElementById("hit-effect")
 const hitSound = new Audio("./audio/click.wav")
 const sunkSound = new Audio("./audio/sunk.mp3")
 const winSound = new Audio("./audio/win.mp3")
@@ -118,9 +119,27 @@ StatusText.textContent = "Click to fire! You have 80 tries."
 ScoreText.textContent = `Hits: 0 / ${HitsRequired}  ~  Tries Left: ${TriesNum}  ~  Fossils Remaining: ${FossilShapes.length}`
 }
 
+//temporory magnifying img
+function showHitImg(x, y) {
+  hitImg.style.left= x + 'px'
+  hitImg.style.top= y + 'px'
+  hitImg.style.display = 'block'
+
+//show only for (0.3 seconds)
+setTimeout(()=>{
+    hitImg.style.display = 'none'
+  },300)
+}
+
+//while clicking show the img
+document.getElementById("game-board").addEventListener("click", function(event) {
+  const x = event.pageX
+  const y = event.pageY
+  showHitImg(x, y)
+})
+
 //handle click on the board
 function HandleClicK(event) {
-
     if (!timerStarted) {
     startTimer()
     timerStarted = true
