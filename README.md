@@ -83,11 +83,11 @@
 * Display turn-based status and animations
 * Add sound effects for hits, misses, win/lose, and countdown
 
-
+***The future feature has been applied in the new repositorie [Fossil-Prospector-2players](https://github.com/ayahalij/Fossil-Prospector-2players)***
 ![Future plan game framework design](images/futureframework.png)
 
-##  Credits 🙏🏻
 
+##  Credits 🙏🏻
 
 * 📝✍🏻 **Planning & Task Management**: [Trello](https://trello.com) used for organizing phases, tasks, and progress.
 * 🎨🧱 **Wireframe & Layout Design**: Created using [Figma](https://www.figma.com/) for visual planning and layout structure.
