@@ -2,7 +2,7 @@
 //number of available tries
 const TriesNum = 80
 
-//fossiles shape
+//fossiles shape and size
 const FossilShapes = [
 {size:1, shape:'line', part:'Plate1'},
 {size:1, shape:'line', part:'Plate2'},
@@ -14,7 +14,7 @@ const FossilShapes = [
 {size:8, shape:'rectangle', part:'Body', rows: 2, cols: 4 }
 ]
 
-//total fossil sqr = 26
+//sum and total fossil sqr = 26
 const HitsRequired = FossilShapes.reduce((sum, s)=> sum + s.size, 0)
 
 
@@ -25,12 +25,15 @@ let min=2, sec=0;
 
 
 /*------------------------ Cached Element References ------------------------*/
+//get element by the id
 const board = document.getElementById("game-board")
 const StatusText = document.getElementById("status")
 const ScoreText = document.getElementById("score")
 const RestartBtn = document.getElementById("restart-btn")
 const TimerText = document.getElementById("timer")
 const hitImg = document.getElementById("hit-effect")
+
+
 const hitSound = new Audio("./audio/click.wav")
 const sunkSound = new Audio("./audio/sunk.mp3")
 const winSound = new Audio("./audio/win.mp3")
@@ -106,7 +109,7 @@ FossilShapes.forEach((Fossil, index)=>{
       }
     }
 
-//hiting the fossil
+//hiting the fossil -sunk-
     if (positions.length === Fossil.size) {
       Fossils.push({ part: Fossil.part, positions, hits: [] })
       placed = true
@@ -114,7 +117,7 @@ FossilShapes.forEach((Fossil, index)=>{
   }
 })
 
-//update
+//update the score
 StatusText.textContent = "Click to fire! You have 80 tries."
 ScoreText.textContent = `Hits: 0 / ${HitsRequired}  ~  Tries Left: ${TriesNum}  ~  Fossils Remaining: ${FossilShapes.length}`
 }
@@ -124,7 +127,6 @@ function showHitImg(x, y) {
   hitImg.style.left= x + 'px'
   hitImg.style.top= y + 'px'
   hitImg.style.display = 'block'
-
 //show only for (0.3 seconds)
 setTimeout(()=>{
     hitImg.style.display = 'none'
@@ -138,7 +140,7 @@ document.getElementById("game-board").addEventListener("click", function(event) 
   showHitImg(x, y)
 })
 
-//handle click on the board
+//handle click on the board and start timer
 function HandleClicK(event) {
     if (!timerStarted) {
     startTimer()
@@ -148,10 +150,11 @@ function HandleClicK(event) {
 const id = parseInt(event.target.id)
 const square = event.target
 
+//hitihg or missing = increase tries
 if (square.classList.contains("hit") || square.classList.contains("miss") || tries >= TriesNum) return
 tries++
 
-//hiting
+//hiting fossil and sunk
 for (let Fossil of Fossils) {
   if (Fossil.positions.includes(id)) {
     if (!Fossil.hits.includes(id)) {
@@ -171,16 +174,16 @@ for (let Fossil of Fossils) {
         FossilsSunk++
         StatusText.textContent = `You sunk the ${Fossil.part}🔍👏🏻`
         const partClass = `.check-${Fossil.part.toLowerCase()}`
-        const overlay = document.querySelector(partClass);
-        sunkSound.currentTime = 0;
-        sunkSound.play();
+        const overlay = document.querySelector(partClass)
+        sunkSound.currentTime = 0
+        sunkSound.play()
         if (overlay) {
-        overlay.style.display = "block";
+        overlay.style.display = "block"
         }
       }
 
-      hitSound.currentTime = 0;
-      hitSound.play();
+      hitSound.currentTime = 0
+      hitSound.play()
 
       updateScore()
       return
@@ -191,28 +194,28 @@ for (let Fossil of Fossils) {
 //missing
 square.classList.add("miss")
 StatusText.textContent = "Miss❌"
-hitSound.currentTime = 0;
-hitSound.play();
-updateScore();
+hitSound.currentTime = 0
+hitSound.play()
+updateScore()
 }
 
 //score update
 function updateScore() {
   ScoreText.textContent = `Hits: ${hitCount} / ${HitsRequired} ~ Tries Left: ${TriesNum - tries} ~ Fossils Remaining: ${FossilShapes.length - FossilsSunk}`
 
-  //end of the game
+  //end of the game -wining or loseing-
   if (hitCount === HitsRequired){
     StatusText.textContent = "All the Fossils sunk! YOU WIN! 😍"
     clearInterval(timeInt)
     disableBoard()
-    winSound.currentTime = 0;
+    winSound.currentTime = 0
     winSound.play();
   } 
   else if (tries >= TriesNum){
     StatusText.textContent = "All tries used. Game Over 😣"
     clearInterval(timeInt)
     disableBoard()
-    loseSound.currentTime = 0;
+    loseSound.currentTime = 0
     loseSound.play();
   }
 }
@@ -225,6 +228,12 @@ function disableBoard(){
   }
 }
 
+//update timer
+function updateTimerDisplay() {
+  let minStr = String(min).padStart(2, '0')
+  let secStr = String(sec).padStart(2, '0')
+  TimerText.textContent = `Time Left: ${minStr}:${secStr}`
+}
 
 //timer
 function startTimer() {
@@ -253,12 +262,6 @@ function startTimer() {
   },1000)
 }
 
-//update timer
-function updateTimerDisplay() {
-  let minStr = String(min).padStart(2, '0')
-  let secStr = String(sec).padStart(2, '0')
-  TimerText.textContent = `Time Left: ${minStr}:${secStr}`
-}
 
 /*----------------------------- Event Listeners -----------------------------*/
 //When DOM is ready, initialize everything
