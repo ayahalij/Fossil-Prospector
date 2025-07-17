@@ -118,7 +118,7 @@ FossilShapes.forEach((Fossil, index)=>{
 })
 
 //update the score
-StatusText.textContent = "Click to fire! You have 80 tries."
+StatusText.textContent = "Click to prospect! You have 80 tries."
 ScoreText.textContent = `Hits: 0 / ${HitsRequired}  ~  Tries Left: ${TriesNum}  ~  Fossils Remaining: ${FossilShapes.length}`
 }
 
@@ -127,7 +127,7 @@ function showHitImg(x, y) {
   hitImg.style.left= x + 'px'
   hitImg.style.top= y + 'px'
   hitImg.style.display = 'block'
-//show only for (0.3 seconds)
+//show only for 0.3 sec
 setTimeout(()=>{
     hitImg.style.display = 'none'
   },300)
@@ -239,7 +239,7 @@ function updateTimerDisplay() {
 function startTimer() {
   updateTimerDisplay() // show initial time
 
-  timeInt = setInterval(() => {
+  timeInt = setInterval(()=>{
     if (sec === 0) {
       if (min === 0) {
         clearInterval(timeInt)

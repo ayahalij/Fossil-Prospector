@@ -15,9 +15,9 @@
 * Your current score and fossil discoveries are displayed in the side panel
 * Finding every fossil component before:
     * Time runs out  
-    *or*
+    *and*
     * The available tries finish
-* A win message will appear *only if you locate all fossil parts before time ends or before the available tries finish*
+* A win message will appear *only if you locate all fossil parts before time ends and before the available tries finish*
 * The **Restart** button will allow you to restart the game.
 
 ##  Planning Materials 📁
@@ -31,7 +31,7 @@
 - On dig: check if cell matches fossil location  
 - Show hit/miss result visually  
 - Track fossil parts found and score  
-- Win = all parts uncovered before time or rival
+- Win = all parts uncovered before time ant tries
 ```
 * plaintext:
 ```
