@@ -1,10 +1,23 @@
-# 🦴Fossil Prospector🦖
+# [🦴Fossil Prospector🦖](https://fossil-prospector.surge.sh/)
 
 ![game framework design](images/framework1.png)
 
 
 ##  Description 🔍
 **Fossil Prospector** is a grid-based excavation game inspired by *Battleship*. In a 10x10 grid, you take on the role of an adventurous paleontologist who must find fossil parts buried across various regions in a race against time and before the available tries finish. Your goal is to locate every fossil fragment needed to finish the dinosaur skeleton before the clock runs out or the tries finish!
+
+Fossil Prospector is a web-based game collection where players dig for fossils on a 10x10 grid. It includes 3 different modes:
+
+## Game Modes 🦖
+1. **Single Player:** Find all fossil pieces within limited attempts.
+
+2. **User vs Computer:** Compete against the computer to find the most fossils first.
+
+3. **Player vs Player:** Two players compete at the same time on the same screen.
+
+## Homepage 🏠
+A central homepage links to all 3 games with a simple and clean layout.
+
 
 ## How to Get Started and Play 🎮
 * The moment the page loads, the game launches automatically.
@@ -76,16 +89,8 @@
    - Start a new game
 
 
-## Future Features 🚀
-* Add a two-player mode (user vs. computer)
-* Both take turns digging on their own grid
-* First to find all fossil parts wins
-* Display turn-based status and animations
-* Add sound effects for hits, misses, win/lose, and countdown
-
-***The future feature has been applied in the new repositorie [Fossil-Prospector-2players](https://github.com/ayahalij/Fossil-Prospector-2players)***
-![Future plan game framework design](images/futureframework.png)
-
+## Play It Online 🚀 
+### https://fossil-prospector.surge.sh/
 
 ##  Credits 🙏🏻
 
