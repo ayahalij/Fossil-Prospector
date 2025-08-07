@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fossil Prospector -2 Players-</title>
+  <link rel="icon" href="./images/logo.png">
+
+  <link rel="stylesheet" href="./css/style2.css">
+  <script defer src="./js/app2.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Freckle+Face&family=Mountains+of+Christmas:wght@400;700&family=Titillium+Web:ital,wght@1,300;1,400&display=swap" rel="stylesheet">
+
+</head>
+<body style="background-image: url(./images/thebackground.png);">
+
+  <h1>🦴Fossil Prospector🦖</h1> 
+  <a id="back-home-btn" href="index.html">🏠︎</a>
+
+
+<div id="mid">
+
+  <div class="side" id="computer-side">
+    <div class="disscore">
+      <h3 class="player-label">Computer 👾</h3> 
+      <p id="computer-status">Click to prospect!</p>
+      <p id="computer-score">Hits: 0 / 26 ~ Fossils Remaining: 8</p>
+    </div>
+
+    <div class="game">
+      <div id="computer-board"></div>
+      <img id="hit-effect" src="images/Magnifying.png">
+    </div>
+
+    <div class="checkboard">
+      <div class="dino-wrapper">
+        <img src="images/dino.png" class="dino-base">
+         <img src="images/FindDinoPlate1.png" class="check-overlay check-plate1 computer-overlay" style="display: none;">
+        <img src="images/FindDinoPlate2.png" class="check-overlay check-plate2 computer-overlay" style="display: none;">
+        <img src="images/FindDinoPlate3.png" class="check-overlay check-plate3 computer-overlay" style="display: none;">
+        <img src="images/FindDinoLeg1.png" class="check-overlay check-leg1 computer-overlay" style="display: none;">
+        <img src="images/FindDinoLeg2.png" class="check-overlay check-leg2 computer-overlay" style="display: none;">
+        <img src="images/FindDinoTail.png" class="check-overlay check-tail computer-overlay" style="display: none;">
+        <img src="images/FindDinoHead.png" class="check-overlay check-head computer-overlay" style="display: none;">
+        <img src="images/FindDinoBody.png" class="check-overlay check-body computer-overlay" style="display: none;">
+      </div>
+    </div>
+  </div>
+
+  <div class="side" id="user-side">
+
+    <div class="disscore">
+      <h3 class="player-label">Player 👤 </h3>
+      <p id="user-status">Click to fire!</p>
+      <p id="user-score">Hits: 0 / 26 ~ Fossils Remaining: 8</p>
+    </div>
+
+    <div class="game">
+      <div id="user-board"></div>
+      <img id="hit-effect" src="images/Magnifying.png">
+
+    </div>
+
+    <div class="checkboard">
+      <div class="dino-wrapper">
+        <img src="images/dino.png" class="dino-base">
+         <img src="images/FindDinoPlate1.png" class="check-overlay check-plate1 user-overlay" style="display: none;">
+        <img src="images/FindDinoPlate2.png" class="check-overlay check-plate2 user-overlay" style="display: none;">
+        <img src="images/FindDinoPlate3.png" class="check-overlay check-plate3 user-overlay" style="display: none;">
+        <img src="images/FindDinoLeg1.png" class="check-overlay check-leg1 user-overlay" style="display: none;">
+        <img src="images/FindDinoLeg2.png" class="check-overlay check-leg2 user-overlay" style="display: none;">
+        <img src="images/FindDinoTail.png" class="check-overlay check-tail user-overlay" style="display: none;">
+        <img src="images/FindDinoHead.png" class="check-overlay check-head user-overlay" style="display: none;">
+        <img src="images/FindDinoBody.png" class="check-overlay check-body user-overlay" style="display: none;">
+      </div>
+    
+    </div>
+  
+  </div>
+</div>
+
+
+  <button id="restart-btn">Restart Game 🔄</button>
+
+
+<div id="bottom">
+<img id="logo" src="./images/logo.png">   <p id="creater"> Done by Ayah Aljabboori</p>    <img id="logo" src="./images/logo.png">
+</div>
+</body>
+</html>
+
+
+

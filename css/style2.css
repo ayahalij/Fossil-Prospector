@@ -1,0 +1,244 @@
+body{
+  font-family: 'Freckle Face';
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  margin-top: 25px;
+  font-size: 40px;
+  color: #85673fd5;
+  letter-spacing: 1px;
+}
+
+#back-home-btn {
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  background-color: #f5f5dc9c ;
+  color: #85673f;
+  text-decoration: none;
+  padding: 8px 15px;
+  border-radius: 10px;
+  font-family: 'Freckle Face';
+  font-size: 20px;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  border: 2px solid #85673f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+}
+
+#back-home-btn:hover {
+  background-color: #85673f;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+p{
+  color: #454545;
+  margin: 6px 0;}
+#mid {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 30px 20px;
+  gap: 20px;
+}
+
+.side{
+  width: 45%;
+  background-color: rgba(255, 255, 255, 0.356);
+  border: 2px solid #85673f;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.disscore {
+  text-align: center;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.player-label {
+  font-size: 25px;
+  margin-bottom: 30px;
+  margin-top: 1px;
+  color: #3d3d3d;
+  letter-spacing: 1px;
+  background-color: rgba(214, 213, 213, 0.669);
+  color:rgba(63, 83, 105, 0.888);
+}
+
+#computer-status,  #user-status{
+  border: 1px solid sienna;
+  width: 350px;
+  height: 25px;
+  font-size: 19px;
+  margin: 5px auto;
+  border-radius: 5px;
+  background-color: #BDDBCA;
+  letter-spacing: 1px;
+}
+
+#computer-score,#user-score
+ {
+  border: 1px solid sienna;
+  background-color: #BDDBCA;
+  width: 375px;
+  border-radius: 5px;
+  font-size: 19px;
+  letter-spacing: 1.4px;
+  padding: 2px 6px;
+  display: inline-block;
+}
+
+.game {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+#user-board,
+#computer-board {
+  display: grid;
+  grid-template-columns: repeat(10, 38px);
+  grid-template-rows: repeat(10, 38px);
+  gap: 2px;
+  background-image: url('../images/existical.jpg');
+  background-size: cover;
+  border: 2px solid #444;
+  justify-content: center;
+}
+
+
+.sqr {
+  width: 38px;
+  height: 38px;
+  background-image: url();
+  border: 1px solid #483214b8;
+  cursor: pointer;
+}
+
+.sqr.miss {
+  background-color: rgba(255, 255, 255, 0.785);
+}
+
+.sqr.hit,
+.sqr.sunk {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.sqr.sunk {
+  filter: brightness(0.85);
+}
+
+
+.sqr[data-part="Plate1"] {
+   background-image: url("../images/plate1.png"); 
+  }
+.sqr[data-part="Plate2"] {
+   background-image: url("../images/plate2.png"); 
+  }
+.sqr[data-part="Plate3"] { 
+  background-image: url("../images/plate3.png"); 
+}
+.sqr[data-part="Leg1"] { 
+  background-image: url("../images/leg1.png"); 
+}
+.sqr[data-part="Leg2"] { 
+  background-image: url("../images/leg2.png"); 
+}
+.sqr[data-part="Tail"] { 
+  background-image: url("../images/tail.png"); 
+}
+.sqr[data-part="Head"] {
+   background-image: url("../images/head.png"); 
+  }
+.sqr[data-part="Body"] { 
+  background-image: url("../images/body.png"); 
+}
+
+.checkboard {
+  margin-top: 20px;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+.dino-wrapper {
+  position: relative;
+  height: 220px;
+  background-color: #678e79ab;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.dino-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.check-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  pointer-events: none;
+}
+
+#hit-effect {
+  display: none;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+}
+
+#restart-btn {
+  margin: 10px auto;
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #56765E;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Freckle Face';
+  letter-spacing: 1.1px;
+}
+
+#restart-btn:hover {
+  background-color: #67866f;
+  transform: translateY(-0.25em);
+  box-shadow: 0 12px 16px 0 rgba(143, 166, 149, 0.742), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+#bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+#logo {
+  height: 30px;
+  background-color: rgba(255, 254, 254, 0.648);
+}
+
+#creater {
+  font-size: 18px;
+  margin-left: 5px;
+  margin-right: 5px;
+}

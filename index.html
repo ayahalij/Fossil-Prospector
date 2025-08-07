@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fossil Prospector</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fossil Prospector Home Page</title>
   <link rel="icon" href="./images/logo.png">
 
   <link rel="stylesheet" href="./css/style.css">
-  <script defer src="./js/app.js"></script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,50 +15,13 @@
 </head>
 <body style="background-image: url(./images/thebackground.png);">
 
-  <h1>🦴Fossil Prospector🦖</h1> 
+  <h1>🦴Fossil Prospector🦖</h1>
 
-<div id="mid">
-
-  <div class='checkboard'>
-    <div class="dino-wrapper">
-    <img src="images/dino.png" id="dino-base">
-
-    <img src="images/FindDinoPlate1.png" class="check-overlay check-plate1">
-    <img src="images/FindDinoPlate2.png" class="check-overlay check-plate2">
-    <img src="images/FindDinoPlate3.png" class="check-overlay check-plate3">
-
-    <img src="images/FindDinoLeg1.png" class="check-overlay check-leg1">
-    <img src="images/FindDinoLeg2.png" class="check-overlay check-leg2">
-
-    <img src="images/FindDinoTail.png" class="check-overlay check-tail">
-
-    <img src="images/FindDinoHead.png" class="check-overlay check-head">
-    <img src="images/FindDinoBody.png" class="check-overlay check-body">
-    </div>
+  <div id="games-menu">
+  <a href="Fossil-Prospector.html" class="game-link">1.   One Player Game</a>
+  <a href="Fossil-Prospector-2players.html" class="game-link">2.   Player vs Computer</a>
+  <a href="Fossil-Prospector-2UsersPlayers.html" class="game-link">3.   Player 1 vs Player 2</a>
   </div>
 
-  <div class="game">
-    <div id="game-board" style="background-image: url('images/existical.jpg');"></div>
-    <img id="hit-effect" src="images/Magnifying.png">
-
-  </div>
-  
-  <div class="disscore">
-    <p id="timer"></p>
-    <p id="status">Click to prospect! You have 80 tries</p>
-    <p id="score">Hits: 0 / 26  ~  Tries Left: 80  ~  Fossils Remaining: 8</p>
-  </div>
-
-</div>
-
-  <button id="restart-btn">Restart Game 🔄</button>
-
-
-<div id="bottom">
-<img id="logo" src="./images/logo.png">   <p id="creater"> Done by Ayah Aljabboori</p>    <img id="logo" src="./images/logo.png">
-</div>
 </body>
 </html>
-
-
-
