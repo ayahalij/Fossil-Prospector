@@ -155,8 +155,8 @@ function handlePlayerClick(event) {
       updateScores();
 
       if (player1Hits === HitsRequired) {
-        player1Status.textContent = "Player 1 found all fossils! 🎉";
-        player2Status.textContent = "Player 2 loses 😢";
+        player2Status.textContent = "Player 1 found all fossils! 🎉";
+        player1Status.textContent = "Player 2 loses 😢";
         gameOver = true;
         winSound.play();
         return;
@@ -189,7 +189,7 @@ function enablePlayer2Turn() {
     sq.addEventListener("click", handlePlayer2Click);
   });
   player2Status.textContent = "Player 2's Turn 🔍";
-  player1Status.textContent = "Waiting...";
+  player2Status.textContent = "Waiting...";
 }
 
 function handlePlayer2Click(event) {
@@ -227,8 +227,8 @@ function handlePlayer2Click(event) {
       updateScores();
 
       if (player2Hits === HitsRequired) {
-        player2Status.textContent = "Player 2 found all fossils! 🎉";
-        player1Status.textContent = "Player 1 loses 😢";
+        player1Status.textContent = "Player 2 found all fossils! 🎉";
+        player2Status.textContent = "Player 1 loses 😢";
         gameOver = true;
         winSound.play();
         return;
