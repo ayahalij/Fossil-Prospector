@@ -148,7 +148,10 @@ function handlePlayerClick(event) {
         sunkSound.play();
       }
 
+      // Reset and play hit sound
+      hitSound.currentTime = 0;
       hitSound.play();
+
       updateScores();
 
       if (player1Hits === HitsRequired) {
@@ -169,7 +172,11 @@ function handlePlayerClick(event) {
 
   square.classList.add("miss");
   player1Status.textContent = "Player 1 missed ❌";
+
+  // Reset and play hit sound
+  hitSound.currentTime = 0;
   hitSound.play();
+
   currentPlayer = 2;
   updateStatus();
   disablePlayer2Board();
@@ -213,7 +220,10 @@ function handlePlayer2Click(event) {
         sunkSound.play();
       }
 
+      // Reset and play hit sound
+      hitSound.currentTime = 0;
       hitSound.play();
+
       updateScores();
 
       if (player2Hits === HitsRequired) {
@@ -233,7 +243,11 @@ function handlePlayer2Click(event) {
 
   square.classList.add("miss");
   player2Status.textContent = "Player 2 missed ❌";
+
+  // Reset and play hit sound
+  hitSound.currentTime = 0;
   hitSound.play();
+
   currentPlayer = 1;
   updateStatus();
   disablePlayer2Board();
@@ -247,8 +261,8 @@ function disablePlayer2Board() {
 }
 
 function updateScores() {
-  player1Score.textContent = `Hits: ${player1Hits} / ${HitsRequired} ~ Fossils Remaining: ${FossilShapes.length - player1Sunk}`;
-  player2Score.textContent = `Hits: ${player2Hits} / ${HitsRequired} ~ Fossils Remaining: ${FossilShapes.length - player2Sunk}`;
+  player2Score.textContent = `Hits: ${player1Hits} / ${HitsRequired} ~ Fossils Remaining: ${FossilShapes.length - player1Sunk}`;
+  player1Score.textContent = `Hits: ${player2Hits} / ${HitsRequired} ~ Fossils Remaining: ${FossilShapes.length - player2Sunk}`;
 }
 
 function updateStatus() {
